@@ -1,4 +1,6 @@
 import numpy as np
+import pandas as pd
+from sklearn.ensemble import IsolationForest
 
 class Functions:
     def compute_distance(lat1, lon1, lat2, lon2):
@@ -11,3 +13,19 @@ class Functions:
         c = 2 * np.arcsin(np.sqrt(a)) 
         total_distance = 6372800 * c
         return total_distance/1000
+
+    def isolation_forest(in_file, out_file):
+        df = pd.read_csv(in_file)
+
+        model = IsolationForest(n_estimators = 100, max_samples = 'auto', contamination = 'auto', max_features = 1)
+        model.fit(df[['passenger_count','distance_km','fare_amount']])
+
+        df['scores'] = model.decision_function(df[['passenger_count','distance_km','fare_amount']])
+        df['anomaly'] = model.predict(df[['passenger_count','distance_km','fare_amount']])
+        print(df.head(10))
+
+        # anomaly=df.loc[df['anomaly'] == -1]
+        # anomaly_index = list(anomaly.index)
+        # print(anomaly)
+
+        df.to_csv(out_file)
