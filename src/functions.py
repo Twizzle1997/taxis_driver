@@ -1,6 +1,5 @@
 import numpy as np
 import pandas as pd
-import xgboost as xgb
 from sklearn.ensemble import IsolationForest
 
 class Functions:
@@ -25,21 +24,4 @@ class Functions:
         df['anomaly'] = model.predict(df[['passenger_count','distance_km','fare_amount']])
         print(df.head(10))
 
-        # anomaly=df.loc[df['anomaly'] == -1]
-        # anomaly_index = list(anomaly.index)
-        # print(anomaly)
-
         df.to_csv(out_file)
-
-    def predict_xgboost(data_train, data_test):
-        # Lecture des données
-        dtrain = xgb.DMatrix(data_train)
-        dtest = xgb.DMatrix(data_test)
-
-        # Paramétrage
-        param = {'max_depth':2, 'eta':1, 'objective':'binary:logistic' }
-        num_round = 2
-        bst = xgb.train(param, dtrain, num_round)
-
-        # Réalise la prédiction
-        return bst.predict(dtest)
