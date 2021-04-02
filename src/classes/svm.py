@@ -1,4 +1,4 @@
-from classes.Predictor import Predictor
+from classes.predictor import Predictor
 from sklearn.svm import SVR
 
 class Svm_reg(Predictor):

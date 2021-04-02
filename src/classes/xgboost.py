@@ -1,4 +1,4 @@
-from classes.Predictor import Predictor
+from classes.predictor import Predictor
 import xgboost as xgb
 
 class Xgb_reg(Predictor):
