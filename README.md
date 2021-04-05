@@ -9,6 +9,7 @@
   * [Installation](#installation)
 * [Usage](#usage)
   * [Model classes](#model-classes)
+* [Special Thanks](#special-thanks)
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
@@ -50,3 +51,6 @@ Get a local copy up and running following these steps.
 * ```/src/classes/linear_reg.py``` *[parent : Predictor]* [Linear Regression model](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html).  
 * ```/src/classes/randomforest.py``` *[parent : Predictor]* [Random Forest Regressor model](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html).  
 * ```/src/classes/svm.py``` *[parent : Predictor]* [Support Vector Regression model](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html) (not used).  
+
+## Special Thanks 
+Special thanks to [@David K.](https://github.com/KRDavid) for his precious help. Hug Hug.
